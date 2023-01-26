@@ -181,5 +181,12 @@ nnoremap <leader>h :call ToggleHiddenAll()<CR>
 source ~/.config/nvim/shortcuts.vim
 source ~/.config/nvim/plug-config/coc.vim
 setlocal spell
-set spelllang=en_gb
+set spelllang=en_gb,cjk
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+""""""""""ALLOWS VIM TO REMEMBER FOLDS"""""""
+augroup remember_folds
+autocmd!
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
+augroup end
+"""""""""""""""""""""""""""""""""""""""""""""
